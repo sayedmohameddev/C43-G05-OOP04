@@ -2,32 +2,47 @@
 
 namespace C43_G05_OOP04
 {
-    class Calculator
+    class Rectangle
     {
-        public int Add(int a, int b)
+        public int Width { get; set; }
+        public int Height { get; set; }
+
+        public Rectangle()
         {
-            return a + b;
+            Width = 0;
+            Height = 0;
         }
 
-        public int Add(int a, int b, int c)
+        public Rectangle(int width, int height)
         {
-            return a + b + c;
+            Width = width;
+            Height = height;
         }
 
-        public double Add(double a, double b)
+        public Rectangle(int size)
         {
-            return a + b;
+            Width = size;
+            Height = size;
+        }
+
+        public void DisplayDimensions()
+        {
+            Console.WriteLine($"Width: {Width}, Height: {Height}");
         }
     }
-    internal class Program
+
+    class Program
     {
         static void Main(string[] args)
         {
-            Calculator calculator = new Calculator();
+            Rectangle rect1 = new Rectangle();
+            rect1.DisplayDimensions(); 
 
-            Console.WriteLine("Sum of two integers: " + calculator.Add(10, 20)); 
-            Console.WriteLine("Sum of three integers: " + calculator.Add(10, 20, 30)); 
-            Console.WriteLine("Sum of two doubles: " + calculator.Add(5.5, 4.5)); 
+            Rectangle rect2 = new Rectangle(10, 20);
+            rect2.DisplayDimensions(); 
+
+            Rectangle rect3 = new Rectangle(15);
+            rect3.DisplayDimensions(); 
         }
     }
 }
