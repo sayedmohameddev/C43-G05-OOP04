@@ -82,30 +82,56 @@ namespace C43_G05_OOP04
     //}
 
 
-    class BaseClass
+    //class BaseClass
+    //{
+    //    public virtual void DisplayMessage()
+    //    {
+    //        Console.WriteLine("Message from BaseClass");
+    //    }
+    //}
+
+    //class DerivedClass1 : BaseClass
+    //{
+    //    public override void DisplayMessage()
+    //    {
+    //        Console.WriteLine("Message from DerivedClass1");
+    //    }
+    //}
+
+    //class DerivedClass2 : BaseClass
+    //{
+    //    public new void DisplayMessage()
+    //    {
+    //        Console.WriteLine("Message from DerivedClass2");
+    //    }
+    //}
+
+
+    class Duration
     {
-        public virtual void DisplayMessage()
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+
+        public Duration(int hours, int minutes, int seconds)
         {
-            Console.WriteLine("Message from BaseClass");
+            Hours = hours;
+            Minutes = minutes;
+            Seconds = seconds;
+        }
+
+        public Duration()
+        {
+            Hours = 0;
+            Minutes = 0;
+            Seconds = 0;
+        }
+
+        public override string ToString()
+        {
+            return $"{Hours:D2}:{Minutes:D2}:{Seconds:D2}";
         }
     }
-
-    class DerivedClass1 : BaseClass
-    {
-        public override void DisplayMessage()
-        {
-            Console.WriteLine("Message from DerivedClass1");
-        }
-    }
-
-    class DerivedClass2 : BaseClass
-    {
-        public new void DisplayMessage()
-        {
-            Console.WriteLine("Message from DerivedClass2");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -134,17 +160,24 @@ namespace C43_G05_OOP04
             //manager.Work();
 
 
-            BaseClass baseClass = new BaseClass();
-            baseClass.DisplayMessage();
+            //BaseClass baseClass = new BaseClass();
+            //baseClass.DisplayMessage();
 
-            BaseClass derived1 = new DerivedClass1();
-            derived1.DisplayMessage(); 
+            //BaseClass derived1 = new DerivedClass1();
+            //derived1.DisplayMessage(); 
 
-            BaseClass derived2 = new DerivedClass2();
-            derived2.DisplayMessage(); 
+            //BaseClass derived2 = new DerivedClass2();
+            //derived2.DisplayMessage(); 
 
-            DerivedClass2 derived2Direct = new DerivedClass2();
-            derived2Direct.DisplayMessage(); 
+            //DerivedClass2 derived2Direct = new DerivedClass2();
+            //derived2Direct.DisplayMessage(); 
+
+
+            Duration duration1 = new Duration(2, 45, 30);
+            Console.WriteLine("Duration 1: " + duration1); 
+
+            Duration duration2 = new Duration();
+            Console.WriteLine("Duration 2: " + duration2);
         }
     }
 }
