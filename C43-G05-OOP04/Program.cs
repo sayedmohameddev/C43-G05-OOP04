@@ -1,4 +1,5 @@
 ﻿using System;
+using C43_G05_OOP04;
 
 namespace C43_G05_OOP04
 {
@@ -131,53 +132,86 @@ namespace C43_G05_OOP04
         {
             return $"{Hours:D2}:{Minutes:D2}:{Seconds:D2}";
         }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+
+        public override bool Equals(object obj)
         {
-
-            //    Rectangle rect1 = new Rectangle();
-            //    rect1.DisplayDimensions(); 
-
-            //    Rectangle rect2 = new Rectangle(10, 20);
-            //    rect2.DisplayDimensions(); 
-
-            //    Rectangle rect3 = new Rectangle(15);
-            //    rect3.DisplayDimensions(); 
-
-            //ComplexNumber c1 = new ComplexNumber(3, 4);
-            //ComplexNumber c2 = new ComplexNumber(1, 2);
-
-            //ComplexNumber sum = c1 + c2;
-            //Console.WriteLine($"Sum: {sum}"); 
-
-            //ComplexNumber difference = c1 - c2;
-            //Console.WriteLine($"Difference: {difference}");
-
-            //Manager manager = new Manager();
-
-            //manager.Work();
-
-
-            //BaseClass baseClass = new BaseClass();
-            //baseClass.DisplayMessage();
-
-            //BaseClass derived1 = new DerivedClass1();
-            //derived1.DisplayMessage(); 
-
-            //BaseClass derived2 = new DerivedClass2();
-            //derived2.DisplayMessage(); 
-
-            //DerivedClass2 derived2Direct = new DerivedClass2();
-            //derived2Direct.DisplayMessage(); 
-
-
-            Duration duration1 = new Duration(2, 45, 30);
-            Console.WriteLine("Duration 1: " + duration1); 
-
-            Duration duration2 = new Duration();
-            Console.WriteLine("Duration 2: " + duration2);
+            if (obj is Duration other)
+            {
+                return Hours == other.Hours && Minutes == other.Minutes && Seconds == other.Seconds;
+            }
+            return false;
         }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Hours, Minutes, Seconds);
+        }
+    }
+
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        //    Rectangle rect1 = new Rectangle();
+        //    rect1.DisplayDimensions(); 
+
+        //    Rectangle rect2 = new Rectangle(10, 20);
+        //    rect2.DisplayDimensions(); 
+
+        //    Rectangle rect3 = new Rectangle(15);
+        //    rect3.DisplayDimensions(); 
+
+        //ComplexNumber c1 = new ComplexNumber(3, 4);
+        //ComplexNumber c2 = new ComplexNumber(1, 2);
+
+        //ComplexNumber sum = c1 + c2;
+        //Console.WriteLine($"Sum: {sum}"); 
+
+        //ComplexNumber difference = c1 - c2;
+        //Console.WriteLine($"Difference: {difference}");
+
+        //Manager manager = new Manager();
+
+        //manager.Work();
+
+
+        //BaseClass baseClass = new BaseClass();
+        //baseClass.DisplayMessage();
+
+        //BaseClass derived1 = new DerivedClass1();
+        //derived1.DisplayMessage(); 
+
+        //BaseClass derived2 = new DerivedClass2();
+        //derived2.DisplayMessage(); 
+
+        //DerivedClass2 derived2Direct = new DerivedClass2();
+        //derived2Direct.DisplayMessage(); 
+
+
+        //Duration duration1 = new Duration(2, 45, 30);
+        //Console.WriteLine("Duration 1: " + duration1); 
+
+        //Duration duration2 = new Duration();
+        //Console.WriteLine("Duration 2: " + duration2);
+
+        Duration duration1 = new Duration(2, 45, 30);
+        Duration duration2 = new Duration(2, 45, 30);
+        Duration duration3 = new Duration(1, 30, 15);
+
+        Console.WriteLine("Duration 1: " + duration1); 
+        Console.WriteLine("Duration 2: " + duration2); 
+        Console.WriteLine("Duration 3: " + duration3); 
+
+        Console.WriteLine("Duration1 equals Duration2: " + duration1.Equals(duration2));
+        Console.WriteLine("Duration1 equals Duration3: " + duration1.Equals(duration3)); 
+
+        Console.WriteLine("HashCode of Duration1: " + duration1.GetHashCode());
+        Console.WriteLine("HashCode of Duration2: " + duration2.GetHashCode());
+        Console.WriteLine("HashCode of Duration3: " + duration3.GetHashCode());
+    
+}
+
     }
 }
