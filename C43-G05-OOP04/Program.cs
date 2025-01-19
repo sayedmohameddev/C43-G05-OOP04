@@ -60,24 +60,51 @@ namespace C43_G05_OOP04
     //    }
     //}
 
-    class Employee
+
+
+
+    //class Employee
+    //{
+    //    public virtual void Work()
+    //    {
+    //        Console.WriteLine("Employee is working");
+    //    }
+    //}
+
+    //class Manager : Employee
+    //{
+    //    public override void Work()
+    //    {
+    //        base.Work();
+
+    //        Console.WriteLine("Manager is managing");
+    //    }
+    //}
+
+
+    class BaseClass
     {
-        public virtual void Work()
+        public virtual void DisplayMessage()
         {
-            Console.WriteLine("Employee is working");
+            Console.WriteLine("Message from BaseClass");
         }
     }
 
-    class Manager : Employee
+    class DerivedClass1 : BaseClass
     {
-        public override void Work()
+        public override void DisplayMessage()
         {
-            base.Work();
-
-            Console.WriteLine("Manager is managing");
+            Console.WriteLine("Message from DerivedClass1");
         }
     }
 
+    class DerivedClass2 : BaseClass
+    {
+        public new void DisplayMessage()
+        {
+            Console.WriteLine("Message from DerivedClass2");
+        }
+    }
 
     class Program
     {
@@ -102,9 +129,22 @@ namespace C43_G05_OOP04
             //ComplexNumber difference = c1 - c2;
             //Console.WriteLine($"Difference: {difference}");
 
-            Manager manager = new Manager();
+            //Manager manager = new Manager();
 
-            manager.Work();
+            //manager.Work();
+
+
+            BaseClass baseClass = new BaseClass();
+            baseClass.DisplayMessage();
+
+            BaseClass derived1 = new DerivedClass1();
+            derived1.DisplayMessage(); 
+
+            BaseClass derived2 = new DerivedClass2();
+            derived2.DisplayMessage(); 
+
+            DerivedClass2 derived2Direct = new DerivedClass2();
+            derived2Direct.DisplayMessage(); 
         }
     }
 }
